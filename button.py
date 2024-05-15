@@ -1,25 +1,14 @@
-import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
+from PySide6.QtWidgets import QPushButton
 
 
-class ButtonHolder(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle('Button')
-        button = QPushButton("Click Me!")
-        button.setCheckable(True)
-        button.setChecked(True)
-        button.clicked.connect(self.btnclicked)
+class Button(QPushButton):
+    def __init__(self, title):
+        super().__init__(title)
 
-        self.setCentralWidget(button)
+        self.setCheckable(True)
+        self.setChecked(False)
 
-    def btnclicked(self, state):
-        print('Button was clicked', state)
+        self.clicked.connect(self.button_pressed)
 
-
-app = QApplication([])
-
-window = ButtonHolder()
-window.show()
-
-app.exec()
+    def button_pressed(self, state):
+        print('You clicked the button!! : Also, this is the state of the button:  ', state)

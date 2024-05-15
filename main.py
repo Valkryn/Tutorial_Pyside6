@@ -1,16 +1,16 @@
-from PySide6.QtWidgets import QApplication, QPushButton, QMainWindow
-from button import ButtonHolder
-import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton
+from rockwidget import RockWidget
+from button import Button
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("ExPDF")
-        btn = QPushButton("Click Me!")
-        self.setMinimumSize(400, 300)
-        self.setMaximumSize(800, 600)
-        self.setCentralWidget(btn)
+        self.setWindowTitle('App Name Goes Here')
+        self.setMaximumSize(800, 800)
+
+        my_button = Button('Worked?')
+        self.setCentralWidget(my_button)
 
 
 app = QApplication([])
@@ -19,5 +19,4 @@ window = MainWindow()
 window.show()
 
 app.exec()
-
-#47:45
+# 47:45
